@@ -19,5 +19,6 @@ class MainController extends AbstractController
     public function liste(): Response
     {
         return $this->render("main/liste.html.twig");
+
     }
 }
