@@ -1,14 +1,12 @@
-<!doctype html>
-<html lang="fr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Home</title>
-</head>
-<body>
-<h1>Bonjour à tous !</h1>
+{% extends 'base.html.twig' %}
 
-</body>
-</html>
+{% block title %}
+    {{ parent() }} | Accueil
+
+{% endblock %}
+
+{% block body %}
+    <h1>Bienvenue sur Bucket List,</h1>
+    <p>Ici tu pourras faire la liste de tout ce que tu devras faire dans ta petite vie de merde.</p>
+
+{% endblock %}
