@@ -8,4 +8,12 @@
 {% block body %}
     <h1>Detail :</h1>
 
+    <p>Le titre : {{ wish.title }}</p>
+    <p>La description: {{ wish.description }}</p>
+    <p>L'auteur : {{ wish.author }}</p>
+    <p>La date de création : {{ wish.dateCreated | date('Y-m-d')}}</p>
+
+
+
+
 {% endblock %}

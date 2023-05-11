@@ -8,8 +8,12 @@
 {% block body %}
     <h1>Wishlist :</h1>
 
+    {% for wish in wishes %}
+        <h3>-> <a href="{{ path('wish_detail', {'id': wish.id}) }}">{{ wish.title }}</a></h3><br>
 
-    Wish n°1 - {{ wish1 }}<br>
-    Wish n°2 - {{ wish2 }}<br>
+    {% endfor %}
+
+
+
 
 {% endblock %}
