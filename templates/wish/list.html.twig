@@ -8,12 +8,11 @@
 {% block body %}
     <h1>Wishlist :</h1>
 
-    {% for wish in wishes %}
-        <h3>-> <a href="{{ path('wish_detail', {'id': wish.id}) }}">{{ wish.title }}</a></h3><br>
+    <div class="list">
+        {% for wish in wishes %}
+            <h3>-> <a href="{{ path('wish_detail', {'id': wish.id}) }}">{{ wish.title }}</a></h3><br>
 
-    {% endfor %}
-
-
-
+        {% endfor %}
+    </div>
 
 {% endblock %}

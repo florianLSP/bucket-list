@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="icon" href="{{ asset('img/iconBucket.png') }}">
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">
@@ -18,11 +17,20 @@
         <h1><a href="{{ path('main_home') }}"><img src="{{ asset('img/bucketList.svg') }}" alt="Logo bucketList"></a>
         </h1>
         {{ include('menu/nav.html.twig') }}
+
+        {% for label, messages in app.flashes() %}
+            {% for message in messages %}
+                <div class="flash flash-{{ label }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endfor %}
     </header>
 
     <main>
-        {% block body %} {% endblock %}
-
+        <div class="content">
+            {% block body %} {% endblock %}
+        </div>
     </main>
 
 

@@ -7,6 +7,7 @@ use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: WishRepository::class)]
+#[ORM\HasLifecycleCallbacks]
 class Wish
 {
     #[ORM\Id]
@@ -92,5 +93,11 @@ class Wish
         $this->dateCreated = $dateCreated;
 
         return $this;
+    }
+
+    #[ORM\PostPersist]
+    public function setNewWish(){
+        $this->setDateCreated(new\DateTime());
+        $this->setIsPublished(true);
     }
 }

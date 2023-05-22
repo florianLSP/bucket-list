@@ -18,7 +18,7 @@ class MainController extends AbstractController
     #[Route('/liste', name: 'main_liste')]
     public function liste(): Response
     {
-        return $this->render("main/liste.html.twig");
+        return $this->render("wish/list.html.twig");
 
     }
 
@@ -28,4 +28,5 @@ class MainController extends AbstractController
         return $this->render("main/about.html.twig");
 
     }
+
 }
