@@ -30,6 +30,10 @@ class Wish
     #[ORM\Column(type: Types::DATETIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $dateCreated = null;
 
+    #[ORM\ManyToOne(inversedBy: 'wishes')]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Category $categories = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -97,7 +101,19 @@ class Wish
 
     #[ORM\PostPersist]
     public function setNewWish(){
-        $this->setDateCreated(new\DateTime());
+        $this->setDateCreated(new \DateTime());
         $this->setIsPublished(true);
+    }
+
+    public function getCategories(): ?Category
+    {
+        return $this->categories;
+    }
+
+    public function setCategories(?Category $categories): self
+    {
+        $this->categories = $categories;
+
+        return $this;
     }
 }

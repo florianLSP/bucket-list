@@ -4,8 +4,6 @@ namespace App\Controller;
 
 use App\Entity\Wish;
 use App\Form\WishType;
-use App\Repository\MakeAWishRepository;
-use App\Repository\SerieRepository;
 use App\Repository\WishRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -53,7 +51,7 @@ class WishController extends AbstractController
 /*            $wish -> setDateCreated(new \DateTime());*/
             $wishRepository->save($wish, true);
 
-            $this->addFlash('success', 'Le wish est ajouté !');
+            $this->addFlash('success', "Le wish " . $wish->getTitle() . " vient d'être ajouté !");
             return $this->redirectToRoute('wish_detail', ['id' => $wish->getId()]);
         }
 
@@ -61,5 +59,16 @@ class WishController extends AbstractController
             "wishForm" => $wishForm->createView()
         ]);
 
+    }
+
+    #[Route('/delete/{id}', name: 'delete', requirements: ["id" => "\d+"])]
+    public function delete(int $id, WishRepository $wishRepository){
+
+        $wish= $wishRepository->find($id);
+
+        $wishRepository->remove($wish, true);
+
+        $this->addFlash('success',"Le wish" . $wish->getTitle() . " a été supprimé!");
+        return $this->redirectToRoute('main_home');
     }
 }

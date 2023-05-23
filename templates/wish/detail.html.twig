@@ -10,13 +10,15 @@
 
     <div class="detail">
         <h3>{{ wish.title }}</h3>
+        <p>La catégorie: {{ wish.categories.name }}</p>
         <p>La description: {{ wish.description }}</p>
         <p>L'auteur : {{ wish.author }}</p>
         <p>La date de création : {{ wish.dateCreated | date('Y-m-d')}}</p>
+
+        <div class="suppression">
+            <button type="text" class="button" onclick="return confirm('Are you sure you want to delete {{ wish.title }} ?')" ><a href="{{ path('wish_delete', {'id': wish.id}) }}">Supprimer le wish</a></button>
+        </div>
     </div>
-
-
-
 
 
 {% endblock %}

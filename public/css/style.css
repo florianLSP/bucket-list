@@ -1,8 +1,6 @@
 body{
     font-family: 'Quicksand', sans-serif;
-    background: linear-gradient(white, #ebf2f8);
-    background-attachment: fixed;
-    background-position: center center;
+    background: linear-gradient(white, #ebf2f8) fixed center center;
     background-size: cover;
 }
 
@@ -99,15 +97,23 @@ nav li {
 }
 
 .detail{
-    border: rgba(122, 122, 130, 0.2) 5px solid;
-    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    box-shadow:  20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
     padding: 5%;
+    background: linear-gradient(white, #eceef3) fixed center center;
+}
+
+.suppression{
+    display: flex;
+    align-items: center;
 }
 
 .list{
-    border: rgba(122, 122, 130, 0.2) 5px solid;
-    border-radius: 10px;
+    box-shadow:  20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
     padding: 5%;
+    background: linear-gradient(white, #eceef3) fixed center center;
+
 }
 
 .validation{
@@ -116,41 +122,87 @@ nav li {
 }
 
 button {
-    padding: 1px 4px;
-    border: unset;
-    border-radius: 10px;
-    color: #212121;
-    z-index: 1;
-    background: #f1f5fa;
-    position: relative;
-
-    font-size: 13px;
-    -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
-    box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
-    transition: all 250ms;
-    overflow: hidden;
+    outline: 0;
+    border: none;
+    cursor: pointer;
+    height: 32px;
+    padding: 0px 16px;
+    border-radius: 50px;
+    background-color: #2222220d;
+    color: #222;
+    font-size: 12px;
+    font-weight: 500;
 }
-
-button::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 0;
-    border-radius: 15px;
-    background-color: #212121;
-    z-index: -1;
-    -webkit-box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
-    box-shadow: 4px 8px 19px -3px rgba(0,0,0,0.27);
-    transition: all 250ms
-}
-
 button:hover {
-    color: #ebf1f8;
+    background-color: #2222221a;
 }
 
-button:hover::before {
-    width: 100%;
+h3{
+    font-style: italic;
+    font-weight: normal;
 }
+
+.carousel{
+    display: flex;
+    justify-content: center;
+}
+
+.carousel img{
+    border-radius: 15px;
+}
+
+figcaption{
+    font-style: italic;
+    font-size: 15px;
+    text-align: center;
+}
+
+.card{
+    padding: 10px;
+    width: auto; /* you can use % */
+    height: 350px;
+
+}
+
+.card1 {
+    padding-top: 25px;
+}
+
+.card3 {
+    padding-top: 25px;
+}
+
+
+.formulaire{
+    height: 100%;
+    width: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow:  20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
+    padding: 5%;
+    background: linear-gradient(white, #eceef3) fixed center center;
+}
+
+.formulaire input[type="text"] {
+    width: auto;
+    height: auto;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#wish_categories{
+    width: auto;
+    height: 30px;
+    font-size: 13px;
+    color: #000000;
+    background-color: #ffffff;
+    border-radius: 5px;
+}
+
+
+
+
 

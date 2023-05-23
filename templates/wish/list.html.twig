@@ -10,8 +10,7 @@
 
     <div class="list">
         {% for wish in wishes %}
-            <h3>-> <a href="{{ path('wish_detail', {'id': wish.id}) }}">{{ wish.title }}</a></h3><br>
-
+            <h3><a href="{{ path('wish_detail', {'id': wish.id}) }}">{{ wish.title }}</a></h3><br>
         {% endfor %}
     </div>
 
