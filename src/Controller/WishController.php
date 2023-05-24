@@ -41,6 +41,7 @@ class WishController extends AbstractController
     public function add(Request $request, WishRepository $wishRepository): Response
     {
         $wish = new Wish();
+        $wish->setAuthor($this->getUser()->getUserIdentifier());
 
         $wishForm = $this->createForm(WishType::class, $wish);
 
