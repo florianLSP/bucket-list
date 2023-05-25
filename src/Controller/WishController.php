@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Wish;
 use App\Form\WishType;
 use App\Repository\WishRepository;
+use App\Tools\Censurator;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -38,8 +39,9 @@ class WishController extends AbstractController
 
 
     #[Route('/add', name: 'add')]
-    public function add(Request $request, WishRepository $wishRepository): Response
+    public function add(Request $request, WishRepository $wishRepository, Censurator $censurator): Response
     {
+
         $wish = new Wish();
         $wish->setAuthor($this->getUser()->getUserIdentifier());
 
@@ -47,7 +49,11 @@ class WishController extends AbstractController
 
         $wishForm->handleRequest($request);
 
+
         if ($wishForm->isSubmitted() && $wishForm->isValid()){
+
+            $wish->setTitle($censurator->purify($wish->getTitle()));
+            $wish->setDescription($censurator->purify($wish->getDescription()));
 
 /*            $wish -> setDateCreated(new \DateTime());*/
             $wishRepository->save($wish, true);
